@@ -13,7 +13,7 @@ app.use(cors())
 
 MongoClient.connect(url, { useUnifiedTopology: true })
     .then(client => {
-        console.log('Connected to Database')
+        // console.log('Connected to Database')
         const db = client.db('100devs')
         const homeworkColl = db.collection('homework')
 
