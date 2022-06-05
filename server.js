@@ -23,17 +23,17 @@ MongoClient.connect(url, { useUnifiedTopology: true })
         app.get('/', (req, res) => {
             res.sendFile(__dirname + '/index.html');
         })
-        
-        app.get('/api/class:classNum', (req, res) => {
+
+        app.get('/api', (req, res) => {
             // if no params, return all classes
-            if(!req.params) {
-                homeworkColl.find().toArray()
+            homeworkColl.find().toArray()
                 .then(results => {
                     res.json(results)
                 })
                 .catch(error => console.log(error))
-            }        
-            
+        })
+        
+        app.get('/api/classes/:classNum', (req, res) => {            
             // return specific 100Devs class
             const classNumIndex = parseInt(req.params.classNum) - 1;
         
