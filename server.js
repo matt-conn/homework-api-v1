@@ -37,7 +37,7 @@ MongoClient.connect(url, { useUnifiedTopology: true })
             // retrieve index of class
             const classNumIndex = parseInt(req.params.classNum) - 1;
             
-            // return specific 100Devs class
+            // return specific class
             homeworkColl.find().toArray()
                 .then(results => {
                     res.json(results[classNumIndex])
